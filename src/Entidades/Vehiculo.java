@@ -16,6 +16,11 @@ public class Vehiculo {
 
     }
 
+    public void calcularImpuestos() {
+
+    }
+
+
     public void setMarca(String marca) {
         this.marca = marca;
     }

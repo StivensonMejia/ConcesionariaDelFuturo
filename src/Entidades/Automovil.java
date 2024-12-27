@@ -7,6 +7,15 @@ public class Automovil extends Vehiculo {
 
     }
 
+    @Override
+    public void calcularImpuestos() {
+        int precio = getPrecio();
+        double valorImpuesto = precio*0.05;
+
+        setPrecioConimpuesto(valorImpuesto);
+        setTotal(getPrecio() + valorImpuesto);
+    }
+
     // GETTERS Y SETTERS
     public int getNumPuertas() {
         return numPuertas;

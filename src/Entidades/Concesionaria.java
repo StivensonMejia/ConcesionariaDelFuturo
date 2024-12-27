@@ -35,26 +35,8 @@ public class Concesionaria {
             }
         }
     }
-    public void calculoDeImpuestos(Vehiculo vehiculo) {
-        int precio = vehiculo.getPrecio();
-        double precioConImpuesto = 0.0;
-        double total = 0.0;
-        if(vehiculo instanceof Automovil) {
-            precioConImpuesto = precio*0.05;
-            total = precioConImpuesto + precio;
-        } else if (vehiculo instanceof Motocicleta) {
-            switch (((Motocicleta) vehiculo).getTipoDeMotor()) {
-                case MOTOR2T -> {
-                    precioConImpuesto = precio*0.03;
-                }
-                case MOTOR4T -> {
-                    precioConImpuesto = precio*0.04;
-                }
-            }
-            total = precioConImpuesto + precio;
-        }
-        vehiculo.setPrecioConimpuesto(precioConImpuesto);
-        vehiculo.setTotal(total);
+    public void calcularImpuestos(Vehiculo vehiculo) {
+        vehiculo.calcularImpuestos();
     }
 
     public ArrayList<Vehiculo> getListaDeVehiculos() {

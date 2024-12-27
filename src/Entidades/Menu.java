@@ -115,7 +115,7 @@ public class Menu {
         // Confirmación
         System.out.println();
         System.out.println(VERDE + "Vehículo ingresado con éxito:" + RESET);
-        concesionariaDelFuturo.calculoDeImpuestos(vehiculo);
+        concesionariaDelFuturo.calcularImpuestos(vehiculo);
         concesionariaDelFuturo.getListaDeVehiculos().add(vehiculo);
         System.out.println();
 

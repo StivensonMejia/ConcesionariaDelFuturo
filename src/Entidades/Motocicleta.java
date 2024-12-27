@@ -8,6 +8,17 @@ public class Motocicleta extends Vehiculo {
 
     }
 
+    @Override
+    public void calcularImpuestos() {
+        double valorImpuesto = 0.0;
+        switch (tipoDeMotor) {
+            case MOTOR2T -> valorImpuesto = getPrecio() * 0.03;
+            case MOTOR4T -> valorImpuesto = getPrecio() * 0.04;
+        }
+        setPrecioConimpuesto(valorImpuesto);
+        setTotal(getPrecio() + valorImpuesto);
+    }
+
     public TipoDeMotor getTipoDeMotor() {
         return tipoDeMotor;
     }
