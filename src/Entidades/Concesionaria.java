@@ -35,9 +35,6 @@ public class Concesionaria {
             }
         }
     }
-    public void calcularImpuestos(Vehiculo vehiculo) {
-        vehiculo.calcularImpuestos();
-    }
 
     public ArrayList<Vehiculo> getListaDeVehiculos() {
         return listaDeVehiculos;
