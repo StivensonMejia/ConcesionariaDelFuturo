@@ -32,18 +32,28 @@ public class Menu {
         System.out.println("4. Simular Venta");
         System.out.println("5. Salir");
 
+        int numero = 0;
         System.out.print(AZUL + "Digite una opcion : " + RESET);
-        while (!userScanner.hasNextInt()){
-            System.out.println(ROJO + "Dato invalido, Ingrese un numero entero." + RESET);
-            System.out.print(AZUL + "Digite una opcion : " + RESET);
-            userScanner.next();
-        }
-        switch (userScanner.nextInt()) {
-            case 1 -> seleccionarTipoVehiculo();
-            case 2 -> mostrarInventario();
-            case 3 -> menuBuscarVehiculo();
-            case 4 -> menuVenderVehiculo();
-            case 5 -> salir();
+        while (numero < 1 || numero > 5) {
+            while (!userScanner.hasNextInt()){
+                System.out.println(ROJO + "Dato invalido, Ingrese un numero entero." + RESET);
+                System.out.print(AZUL + "Digite una opcion : " + RESET);
+                userScanner.next();
+            }
+            numero = userScanner.nextInt();
+            if (numero < 1 || numero > 5) {
+                System.out.println(ROJO + "Numero no disponible." + RESET);
+                System.out.print(AZUL + "Digite una opcion : " + RESET);
+            } else {
+                switch (numero) {
+                    case 1 -> seleccionarTipoVehiculo();
+                    case 2 -> mostrarInventario();
+                    case 3 -> menuBuscarVehiculo();
+                    case 4 -> menuVenderVehiculo();
+                    case 5 -> salir();
+                }
+            }
+
         }
     }
 
@@ -65,6 +75,11 @@ public class Menu {
         switch (userScanner.nextInt()) {
             case 1 -> ingresarVehiculo(concesionariaDelFuturo.crearVehiculo(1));
             case 2 -> ingresarVehiculo(concesionariaDelFuturo.crearVehiculo(2));
+            default -> {
+                System.out.println();
+                System.out.println(ROJO + "Opcion no valida" + RESET);
+                seleccionarTipoVehiculo();
+            }
         }
     }
     public void ingresarVehiculo(Vehiculo vehiculo) {
@@ -278,6 +293,7 @@ public class Menu {
                 break;
             } else {
                 System.out.println(ROJO + "No se encontraron coincidencias" + RESET);
+                espaciosGrandesConsola();
                 menuConcesionario();
             }
         }
@@ -288,9 +304,10 @@ public class Menu {
     }
 
     public void salir(){
-        userScanner.close();
         System.out.println();
         System.out.println(VERDE +"GRACIAS POR SU VISITA" +RESET);
+        userScanner.close();
+        System.exit(0);
     }
     public void espaciosGrandesConsola() {
         System.out.println();
