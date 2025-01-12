@@ -16,10 +16,17 @@ public class Vehiculo {
 
     }
 
+    //sobreescrito
     public void calcularImpuestos() {
 
     }
 
+    public void imprimirInformacion(int infoAd) {
+    }
+    public void imprimirInformacionAd() {
+    }
+    public void metodoEspecial() {
+    }
 
     public void setMarca(String marca) {
         this.marca = marca;
